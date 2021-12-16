@@ -7,17 +7,15 @@ const carRent = new Mongoose.Schema({
 
     modelAuto: {type: String, required: true},
 
+    VIN: {type: String, required: true},
+
+    dateFrom: {type:  Date, required: true },
+
+    dateTo: {type:  Date, required: true},
+
     stateNumber: {type: String},
 
-    VIN: {type: String},
-
-    dateFrom: {type: String},
-
-    dateTo: {type: String},
-
-    tariff: {type: String}
-
-
+    tariff: {type: String, required: true}
 
 })
 

@@ -1,11 +1,9 @@
-const FIRST = 270
-const SECOND = 330
-const THIRD = 390
-
-
-module.exports = {
-    FIRST,
-    SECOND,
-    THIRD
+const tariff = {
+    FIRST: {"price": 270, "km": 200},
+    SECOND: {"price": 330, "km": 350},
+    THIRD: {"price": 390, "km": 500},
 }
+
+module.exports = tariff
+
 
