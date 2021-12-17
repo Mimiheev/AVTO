@@ -2,26 +2,20 @@ const CarRent = require('./carRent')
 
 
 class CarController {
-    static calculatingСostOfCar = async (req, res) => {
+    static calculatingСostOfCar =  (req, res) => {
         try {
             const {VIN} = req.body
-            if (!VIN) {
-                return res.status(400).json({message: 'the car is not in the list'})
-            }
-            await CarRent.find({VIN:{$in:[VIN]}})
-            return res.status(200).json({mg: 'successfully'})
+            return res.status(200).json({VIN})
         } catch (e) {
-            res.status(500).json({message:'rental failed'})
+            res.status(500).json({message:'invalid request'})
         }
-
 
     }
 
     static createRent = async (req, res) => {
         try {
             const {modelAuto, stateNumber, VIN, dateStart, dateFinish} = req.body;
-            await CarRent.create({modelAuto, stateNumber, VIN, dateStart, dateFinish})
-            return res.status(200).json({mg: 'successfully'})
+            return res.status(200).json({modelAuto, stateNumber, VIN, dateStart, dateFinish})
         } catch (e) {
             res.status(500).json({mg: 'invalid request'})
         }
@@ -30,7 +24,7 @@ class CarController {
 
     static loadingAllCars = async (req, res) => {
         try {
-            await CarRent.find();
+            // await CarRent.find();
             return res.status(200).json({mg: 'successfully'})
         } catch (e) {
             res.status(500).json({mg: 'invalid request'})
@@ -40,11 +34,7 @@ class CarController {
     static loadingOneCars = async (req, res) => {
         try {
         const {id} = req.body
-        if (!id) {
-            res.status(400).json({message: 'Не указан id'})
-        }
-            await CarRent.findById(id)
-            return res.status(200).json({mg: 'successfully'})
+            return res.status(200).json({id})
         } catch (e) {
             res.status(500).json({mg: 'invalid request'})
         }
