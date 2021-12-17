@@ -24,7 +24,6 @@ class CarController {
 
     static loadingAllCars = async (req, res) => {
         try {
-            // await CarRent.find();
             return res.status(200).json({mg: 'successfully'})
         } catch (e) {
             res.status(500).json({mg: 'invalid request'})
